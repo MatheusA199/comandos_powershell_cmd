@@ -1,0 +1,7 @@
+git init (Iniciar repositório)
+
+git remote add origin colocar_url
+
+git branch -M main (para tirar da branch master)
+
+pit push -u origin main (para subir os arquivos e guardam branch)

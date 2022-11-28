@@ -1,0 +1,38 @@
+Get-LocalGroup (Ver tipos de usuários)
+
+Get-LocalUser (Ver usuários)
+
+net user username * (Mudar senha do usuário)
+
+net user username /logonpasswordchg:yes (Fazer resetar no próximo login)
+
+net user username /del (Deletar um conta de usuário)
+
+ipacls caminho (Para ver permissões)
+
+ipacls caminho /grant "Everyone:(r,w,x) (Mudar permissões de todos os usuários)
+
+ipacls caminho /remove "Grupo que deseja ser removido" (Para remover permissões)
+
+Register-PackageSource -Name chocolatey -ProviderName Chocolatey -Location http://chocolatery.org/appi/v2
+
+Get-PackageSource
+
+Compress-Archive -Path(atual diretório) arquivos Planets.zip(pasta final)
+
+cmd.exe /c "C:\Program Files\GIMP 2\uninst\unins000.exe" /VERYSILENT /NORESTART (Desinstalar software)
+
+
+Get-Process (Obter PID dos softwares)
+
+taskkill /F /PID [PROCESS ID] (matar processos, pode usar * para pesquisa)
+
+Get-Process | Sort CPU - descending | Select -first 3 -proprerty ID, ProcessName, CPU (Ver os 3 primeiros proceesos que qamis comem CPU)
+
+-- Comando do AD
+
+Add-Computer -DomainName 'example.com' (Adicionar máquina ao domínio, -restart para reiniciar)
+
+Get-AdFlorest (Ver informações da floresta)
+
+Get-AdDomain (ver informações da floresta)

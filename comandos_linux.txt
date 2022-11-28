@@ -1,0 +1,267 @@
+sudo <command>: executa um comando com direitos de administrador.
+ls <directory>: lista os arquivos em um diretório.
+cat <file>: exibe todo o conteúdo de um arquivo.
+tail <file>: exibe o final de um arquivo (10 linhas por padrão).
+nano <file>: abre um editor de texto para alterar o arquivo.
+
+ls (ver documentos do diretório atual)
+
+ls -l (ver informaçoes dos arquivos)
+
+ls -a (Ver arquivos ocultos)
+
+pwd (Ver caminho diretório atual)
+
+mkdir (criar pasta)
+
+mkdir -p (Criar diretório pai)
+
+mkdir -m (definir permições)
+
+mkdir -v (ver detalhes)
+
+rmdir (remover pasta)
+
+touch (criar arquivo, se ele não existir/alterar horários acesso arquivos)
+
+touch -c (Não criar se ele não existir)
+
+cp caminho_arquivo caminho_copia (Copiar arquivo)
+
+mv origem novo_local(mover de diretório)
+
+rm caminho_arquivo (Remover arquivos) (Barra invertida é para escapar o espaço)
+
+grep (Pesquisar, nos arquivos, ocorrência de caracteres)
+
+grep -r (Recursivamente) -w (Corresponder a palavra inteira)
+-n (Buscar apenas no número da linha)-e (Corresponder ao padrão)
+--include --exclude (Incluir e excluir arquivos na pesquisa)
+--include-dir --exclude-dir (Incluir e excluir diretório na pesquisa)
+
+nano (editor de texto)
+
+CTRL-O (Salvar arquivo)
+
+CTRL-X (Sair, quando tudo estiver pronto/da ajuda também)
+
+CTRL-G (Get help)
+
+Sudo (executar como usuário raiz)
+
+Sudo su - (entrar como usuário raiz)
+
+get /etc/group (Ver todos os grupos do Linux)
+
+get /etc/password (Ver usuários)
+
+
+passwd username (mudar senha do usuário pelo Linux)
+
+
+passwd -e username (resetar senha, colocar nova no próximo login)
+
+sudo useradd username (Criar usuário)
+
+sudo userdel username (Deletar um usuário)
+
+
+-- Parte de permissões de usuários 
+
+sudo chmod 700 important_document (mudar permições do arquivo, 7(para o proprietário)
+00(outros grupos)
+
+sudo chmod g-r secret_folder/ (G significa grupo< adicionar permissão de read)
+sudo chmod g-w secret_folder/ (G significa grupo< adicionar permissão de write)
+sudo chmod o-r secret_folder/ (O significa outros usuário, permissão de read)
+sudo chmod u+x secret_folder/ (U significa user < adicionar permissão de executar)
+
+sudo chmod 720 secret_folder/ (mesmo que linhas anteriores, mas mais simples)
+
+
+sudo dpkg -i /home/qwiklab/downloads/atom-amd64.deb (para instalar programas)
+
+sudo apt install -f (corrigir pendencias que faltam da instalção)
+
+sudo apt remove gimp (para desinstalar um programa)
+
+dpkg -s atom (verificar se está instalado)
+
+sudo tar -xvf extract_me.tar (Extrair e escrever arquivo)
+
+tar -cvf Planets.tar --absolute-names /home/qwiklab/documents/Earth /home/qwiklab/documents/Mercury /home/qwiklab/documents/Venus
+(Empacotar arquivos, no diret´rio atual deles)
+
+
+
+sudo chown cook /home/qwiklab/taco (mudar proprietário do arquivo, colocar no lugar de cook)
+
+sudo chmod a+r not_so_important_document (a é all user nesse exemplo)
+
+sudo chmod 777 public_document (todo as permissões possíveis para todos)
+sudo chmod a+rwx public_document (mesma linha sem código)
+
+sudo chmod 764 not_so_important_document (mesmo exemplo com código)
+
+
+
+7a a arquivo
+
+sudo apt install (Instalar pacote)
+sudo apt remove
+sudo apt update
+sudo apt search
+
+uname -r (descobrir atual versão do Kernel)
+
+
+--Formatação de Disco
+
+lsblk (PAra ver dispositivos de transferencias, blocos, ver discos)
+
+df -h (Para ver espaços disponiveis e -h par ver tamanhos)
+
+sudo fdisk -l (exibir informações de partição)
+
+sudo fdisk -l /dev/sdb (para ver informações sobre uma partição específica) 
+
+Desativar disco com umount
+
+sudo fdisk /dev/[SECOND DRIVE] (para modificar disco)
+
+sudo mkfs -t ext4 /dev/[SECOND DRIVE]2 (formatar partição)
+
+sudo mount /dev/[SECOND DRIVE]2 /home/my_drive (para ativar essa partição)
+
+ps -x (Ver processos do sistema)
+
+ps -ef (Ver informações dos processos)
+
+ps -aux (Ver todos os processos em anadamento)
+
+kill -kill PID (Terminar processo sem ferrar com ficheiros)
+
+Kil -TSTP PID (Colocar como pausado um processo)
+
+Kill -CONT PID (Retornar processo)
+
+top (processos que usam mais memória e CPU)
+
+uptime (Ver média de processos tempo CPU)
+
+lsof (processos abertos)
+
+ps -aux | grep "totally_not_malicious" (Pesquisar um processo em especifico)
+
+sudo kill [PROCESS ID] (matar processo)
+
+-- Ver logs do sistema
+
+ls /var/log
+sudo cat /var/log/syslog (Para ver os logs do sistema)
+
+sudo du -a /home | sort -n -r | head -n 5 (ver maiores arquivos)
+
+
+-- Para conectar máquina com SSH
+
+sudo apt-get install openssh-client (Para instalar o packet, na máquina que será controladora)
+
+sudo apt-get install openssh-server (para criar o servicdor SSh na máquina remota)
+
+ssh name@ip (para acessar a máquina)
+
+-- Verificar configuração de DNS
+
+nslookup [nome_dominio] (Verificar as configurações do site em questão)
+
+-- Gestão de Serviços 
+
+sudo service rsyslog status (Verificar sistema de logs do SO)
+
+logger This is a test log entry (colocar um log no arquivo)
+
+sudo tail -1 /var/log/syslog (verificar o último log do arquivo)
+
+sudo service rsyslog stop (Parar qualquer serviço)
+
+sudo service --status-all (Verificar todos os serviços do sistemas)
+
+sudo ls -l /var/log/cups (ver logs de empressora)
+
+sudo service cups restart (Reiniciar serviço)
+
+sudo cat /var/log/cups/error_log
+
+sudo nano /etc/cups/cupsd.conf (editar com editor nano)
+
+sudo service cups reload (Atualizar)
+
+--Configurar Rede
+
+ip address show eth_srv (ver configurações de redes)
+
+ip address show eth_cli (Sem Ipv4)
+
+ cat /etc/dnsmasq.d/mycompany.conf (verificar arquivo)
+
+interface é o nome da interface que será usada para detectar as solicitações DHCP e exibir as
+	respostas. Neste caso, ela é definida como a interface virtual eth_srv.
+
+bind-interfaces significa que o dnsmasq só vai usar essa interface e ignorar as outras.
+
+domain é o nome de domínio usado na rede.
+
+dhcp-option permite fornecer mais informações opcionais aos clientes DHCP. Neste caso, configu
+	ramos router (também conhecido como gateway padrão) e dns-server. Quando os clientes rece
+	berem a resposta DHCP, também vão receber e aplicar essa configuração.
+dhcp-range indica o intervalo de IPs disponíveis para uso na atribuição de IP dinâmico, bem como 
+	a duração do lease. Neste caso, toda a rede (exceto o servidor DHCP) está disponível para
+	o intervalo dinâmico no momento. É preciso mudar isso. O lease atual é de 24 horas, o que 
+	não é ideal para uma rede com vários dispositivos que são visíveis apenas durante períodos 
+	curtos.
+
+sudo service dnsmasq status (Verificar como está a configuração de daemon
+
+# É nesta interface que o servidor DHCP vai detectar o que for necessário.
+interface=eth_srv
+ 
+# Esse comando avisa ao dnsmasq para operar apenas naquela interface e não em
+# outras, para não interferir em outros
+# processos dnsmasq.
+bind-interfaces
+ 
+# O nome de domínio que vai ser enviado aos clientes DHCP
+domain=mycompany.local
+ 
+# Gateway padrão que vai ser enviado aos clientes DHCP
+dhcp-option=option:router,192.168.1.1
+ 
+# Servidores DNS que devem ser anunciados aos clientes DHCP
+dhcp-option=option:dns-server,192.168.1.1
+ 
+# Intervalo de IPs dinâmicos que o DHCP pode usar e o tempo de lease.
+dhcp-range=192.168.1.2,192.168.1.254,24h
+ 
+log-queries
+ 
+log-facility=/var/log/dnsmasq.log (informar onde está os registero de dnsmasq)
+
+sudo dnsmasq --test -C <file path> (verficar se a sintaxe do arquivo de DNS está correta)
+
+--Testar DNS
+
+@localhost (máquina local como exe de servidor DNS)
+
+sudo tail /var/log/dnsmasq.log (ver logs do DNS)
+
+sudo dhclient -i eth_cli -v -sf /root/debug_dhcp.sh (verficar as configurações transmitidas pelo servidor)
+
+sudo dnsmasq --test -C /etc/dnsmasq.d/mycompany.conf (verificar config de DNS serve doc)
+
+sudo ip link set eth_cli address aa:bb:cc:dd:ee:c3  (Mudar MAC Adress)
+
+sudo ip address show eth_cli (mostrar mad adress)
+
+sudo dhclient -i eth_cli -v  -sf /root/debug_dhcp.sh (verificar se IP é o da rede da empresa)
+

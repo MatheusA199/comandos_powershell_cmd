@@ -1,0 +1,25 @@
+sudo apt update (atualizar pacotes do linux)
+sudo apt install apache2 (instalar apache2)
+
+ls -l /etc/apache2/sites-available (Sites hostados)
+
+sudo mv /opt/devel/ourcompany /var/www/ourcompany (Mover ao lugar padrão)
+
+--Vc pode mudar o lugar onde as informações são salvas
+
+ls -l /etc/apache2/sites-enabled (Ver sites online)
+
+sudo a2ensite 001-ourcompany.conf (Ativar site)
+
+ls -l /etc/apache2/sites-enabled (Ver sites ativos)
+
+sudo service apache2 reload (Dar reaload, colocar mudanças em ação)
+
+--Para o site funcionar direito, ative o SSI (Recurso do rodape)
+
+ls /etc/apache2/mods-available (Ver módulos do apache)
+
+sudo a2enmod include (Para ativar um módulo)
+
+sudo service apache2 restart (Tem que reiniciar o serve após isso)
+
